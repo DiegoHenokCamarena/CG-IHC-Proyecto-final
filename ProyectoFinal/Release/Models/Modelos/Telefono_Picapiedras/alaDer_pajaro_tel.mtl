@@ -1,0 +1,91 @@
+newmtl CuerpoPajaroProyectorPicapiedras:lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd BirdUVcolors.png
+Ni 1.00
+newmtl CuerpoPajaroProyectorPicapiedras:lambert3SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd BirdUVcolors.png
+Ni 1.00
+newmtl CuerpoPajaroProyectorPicapiedras:lambert3SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd BirdUVcolors.png
+Ni 1.00
+newmtl cuerpo_lampara:log_texture
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd log_diffuse.png
+map_Ka log_diffuse.png
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl initialShadingGroup
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd text1.png
+Ni 1.00
+newmtl lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd BirdUVcolors.png
+Ni 1.00
+newmtl low_poly_log1:log_texture
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd log_diffuse.png
+map_Ka log_diffuse.png
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl low_poly_log2:log_texture
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd log_diffuse.png
+map_Ka log_diffuse.png
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl low_poly_log3:log_texture
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd log_diffuse.png
+map_Ka log_diffuse.png
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
+newmtl low_poly_log4:log_texture
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd log_diffuse.png
+map_Ka log_diffuse.png
+Ni 1.50
+Ks 0.00 0.00 0.00
+Ns 10.00
