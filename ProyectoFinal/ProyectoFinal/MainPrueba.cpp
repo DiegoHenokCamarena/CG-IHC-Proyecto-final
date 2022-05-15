@@ -1,3 +1,14 @@
+//Proyecto Final Computacion grafica
+//Semestre 2022-2
+//Integrantes:
+/*
+  Diego Henok Camarena
+  Luis Fernando Jaime Farfan
+  Karla Rodriguez Jimenez
+*/
+
+
+
 #include <iostream>
 #include <cmath>
 
