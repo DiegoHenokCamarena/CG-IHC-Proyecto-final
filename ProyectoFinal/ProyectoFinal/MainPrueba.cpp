@@ -249,24 +249,24 @@ int main()
 	Shader Anim2("Shaders/anim2.vs", "Shaders/anim2.frag");
 	//--------------------------------CARGA DE MODELOS--------------------------------//
 	//--------------------------------FACHADA--------------------------------//
-	Model Fachada((char*)"Models/Modelos/Fachada_Picapiedras/fachadaPicapiedras.obj");
-	Model PuertaFachada((char*)"Models/Modelos/Fachada_Picapiedras/PuertaFachadaPicapiedras.obj");
+	Model Fachada((char*)"Models/Modelos/Diego/Fachada_Picapiedras/fachadaPicapiedras.obj");
+	Model PuertaFachada((char*)"Models/Modelos/Diego/Fachada_Picapiedras/PuertaFachadaPicapiedras.obj");
 	//--------------------------------1. Lavatrastes--------------------------------//
-	Model LavatrastesCuerpo((char*)"Models/Modelos/Lavatrastes_Picapiedras/lavatrastesCuerpo.obj");
+	Model LavatrastesCuerpo((char*)"Models/Modelos/Diego/Lavatrastes_Picapiedras/lavatrastesCuerpo.obj");
 	Model LavatrastesPD((char*)"Models/Modelos/Lavatrastes_Picapiedras/lavatrastesPuertaD.obj");
 	Model LavatrastesPI((char*)"Models/Modelos/Lavatrastes_Picapiedras/lavatrastesPuertaI.obj");
 	//--------------------------------2. Lampara--------------------------------//
 	//Model LamparaCabeza((char*)"Models/Modelos/Lampara_Picapiedras/cabeza_lampara.obj");
-	Model Lampara((char*)"Models/Modelos/Lampara_Picapiedras/lamparaPicapiedras.obj");
+	Model Lampara((char*)"Models/Modelos/Diego/Lampara_Picapiedras/lamparaPicapiedras.obj");
 	//--------------------------------3. Reloj--------------------------------//
-	Model relojCaja((char*)"Models/Modelos/Reloj_Picapiedras/relojCaja.obj");
+	Model relojCaja((char*)"Models/Modelos/Diego/Reloj_Picapiedras/relojCaja.obj");
 	Model relojPendulo((char*)"Models/Modelos/Reloj_Picapiedras/relojPendulo.obj");
-	Model relojCuerpoPajaro((char*)"Models/Modelos/Reloj_Picapiedras/relojCuerpoPajaro.obj");
-	Model relojAlaIzqPajaro((char*)"Models/Modelos/Reloj_Picapiedras/relojAlaIzqPajaro.obj");
-	Model relojAlaDerPajaro((char*)"Models/Modelos/Reloj_Picapiedras/relojAlaDerPajaro.obj");
+	Model relojCuerpoPajaro((char*)"Models/Modelos/Diego/Reloj_Picapiedras/relojCuerpoPajaro.obj");
+	Model relojAlaIzqPajaro((char*)"Models/Modelos/Diego/Reloj_Picapiedras/relojAlaIzqPajaro.obj");
+	Model relojAlaDerPajaro((char*)"Models/Modelos/Diego/Reloj_Picapiedras/relojAlaDerPajaro.obj");
 	//--------------------------------4. Estufa--------------------------------//
-	 Model hornoPicapiedras((char*)"Models/Modelos/Horno_Picapiedras/HornoPicapiedras.obj");
-	 Model FuegoHornoPicapiedras((char*)"Models/Modelos/Horno_Picapiedras/FuegoHornoPicapiedras.obj");
+	 Model hornoPicapiedras((char*)"Models/Modelos/Diego/Horno_Picapiedras/HornoPicapiedras.obj");
+	 Model FuegoHornoPicapiedras((char*)"Models/Modelos/Diego/Horno_Picapiedras/FuegoHornoPicapiedras.obj");
 	 //--------------------------------5. Cazuela--------------------------------//
 	 Model cazuelaPicapiedras((char*)"Models/Modelos/Cazuela_Picapiedras/Cazuela_Picapiedras.obj");
 	 Model aguaCazuelaPicapiedras((char*)"Models/Modelos/Cazuela_Picapiedras/AguaCazuela_Picapiedras.obj");
@@ -466,12 +466,12 @@ int main()
 
 	// Load textures
 	vector<const GLchar*> faces;
-	faces.push_back("SkyBox/skyBack.tga");
-	faces.push_back("SkyBox/skyBack.tga");
-	faces.push_back("SkyBox/skyBack.tga");
+	faces.push_back("SkyBox/front.tga");
+	faces.push_back("SkyBox/back.tga");
+	faces.push_back("SkyBox/top.tga");
 	faces.push_back("SkyBox/bottom.tga");
-	faces.push_back("SkyBox/skyBack.tga");
-	faces.push_back("SkyBox/skyBack.tga");
+	faces.push_back("SkyBox/left.tga");
+	faces.push_back("SkyBox/right.tga");
 	
 	GLuint cubemapTexture = TextureLoading::LoadCubemap(faces);
 
@@ -635,7 +635,7 @@ int main()
 		model = glm::mat4(4);
 		tmp = model = glm::translate(model, glm::vec3(0, 1, 0));
 		model = glm::translate(model, glm::vec3(posX, posY, posZ));
-		model = glm::translate(model, glm::vec3(-205.0f, 30.0f, -15.0f));
+		model = glm::translate(model, glm::vec3(50.0f, 460.0f, -300.0f));
 		model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		relojCaja.Draw(lightingShader);	
@@ -740,7 +740,7 @@ int main()
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
-		tmp = model = glm::translate(model, glm::vec3(-300.0f, 47.0f, -33.0f));
+		tmp = model = glm::translate(model, glm::vec3(10.0f, 470.0f, -350.0f));
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, (escala) * 1.0f));
 		model = glm::translate(model, glm::vec3(movPajaro, 0, posPaloReloj));
 		model = glm::rotate(model, glm::radians(rotPajaro), glm::vec3(0.0f, -1.0f, 0.0f));
@@ -975,13 +975,13 @@ void DoMovement()
 	{
 		if (direccionGiro == 0) {
 			posPaloReloj = 0.0f;
-			rotPajaro += 0.3;
+			rotPajaro += 0.15;
 			escala = 1;
 		}
 		if (direccionGiro == 1) {
-			posPaloReloj = 51.0f;
+			posPaloReloj = 520.0f;
 			escala = -1;
-			rotPajaro += 0.3;
+			rotPajaro += 0.2;
 		}
 	}
 	if (movPajaro >= 8) { 
