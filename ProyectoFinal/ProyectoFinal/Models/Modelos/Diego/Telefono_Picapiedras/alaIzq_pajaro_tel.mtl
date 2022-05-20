@@ -89,3 +89,10 @@ map_Ka log_diffuse.png
 Ni 1.50
 Ks 0.00 0.00 0.00
 Ns 10.00
+newmtl relojCuerpoPajaro:lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd BirdUVcolors.png
+Ni 1.00

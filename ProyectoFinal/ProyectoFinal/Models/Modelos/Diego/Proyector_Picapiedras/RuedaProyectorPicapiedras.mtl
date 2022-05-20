@@ -1,24 +1,3 @@
-newmtl HornoPicapiedras:lambert2SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd roca.png
-Ni 1.00
-newmtl HornoPicapiedras:lambert3SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd madera.png
-Ni 1.00
-newmtl HornoPicapiedras:lambert4SG
-illum 4
-Kd 0.00 0.00 0.00
-Ka 0.00 0.00 0.00
-Tf 1.00 1.00 1.00
-map_Kd fire.png
-Ni 1.00
 newmtl initialShadingGroup
 illum 4
 Kd 0.50 0.50 0.50
@@ -65,7 +44,7 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd text3.png
+map_Kd madera.png
 Ni 1.00
 newmtl lambert8SG
 illum 4
@@ -81,21 +60,21 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd text4.png
 Ni 1.00
-newmtl relojAlaDerPajaro:lambert3SG
+newmtl lambert11SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd BirdUVcolors.png
 Ni 1.00
-newmtl relojAlaIzqPajaro:lambert3SG
+newmtl lambert12SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd BirdUVcolors.png
+map_Kd roca.png
 Ni 1.00
-newmtl relojCuerpoPajaro:lambert3SG
+newmtl pasted__lambert11SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
