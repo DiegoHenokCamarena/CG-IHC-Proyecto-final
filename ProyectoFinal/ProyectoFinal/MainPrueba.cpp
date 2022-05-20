@@ -83,6 +83,7 @@ bool establePajaro = false;
 bool rotaPajaro = false;
 bool rotaPajaro_2 = false;
 bool regresaPajaro = false;
+bool aterrizaPajaro = false;
 bool animAlas1_2 = true;
 bool animAlas2_2 = false;
 //------------------------//
@@ -1034,13 +1035,13 @@ void DoMovement()
 		paso = 1;
 	}
 	if (bajaPajaro ) {
-		movPajaroZ += 0.18;
-		movPajaroY -= 0.1;
+		movPajaroZ += 0.18 * 3;
+		movPajaroY -= 0.1 * 3;
 		
 	}
 	if (brincaPajaro ) {
-		movPajaroZ += 0.35;
-		movPajaroY += 0.15;
+		movPajaroZ += 0.35 * 2;
+		movPajaroY += 0.15 * 2;
 		
 	}
 	if (desciendePajaro ) {
@@ -1059,8 +1060,12 @@ void DoMovement()
 		rotPajaro2 -= 0.5;
 	}
 	if (regresaPajaro) {
-		movPajaroZ -= 3.9;
-		movPajaroY += 0.15;
+		movPajaroZ -= 4;
+		movPajaroY += 1;
+	}
+	if (aterrizaPajaro) {
+		movPajaroZ -= 4;
+		movPajaroY -= 1.5;
 	}
 	if (movPajaroY <= -130 && paso ==1) {
 		bajaPajaro = false;
@@ -1086,12 +1091,18 @@ void DoMovement()
 		regresaPajaro = true;
 		paso = 5;
 	}
-	if (movPajaroY >= 75 && paso == 5) {
+	if (movPajaroY >= 200 && paso == 5) {
 		regresaPajaro = false;
-		rotaPajaro_2 = true;
+		aterrizaPajaro = true;
 		paso = 6;
 	}
-	if (rotPajaro2 <= 0 && paso == 6) {
+	if (movPajaroY <= 75 && paso == 6) {
+		aterrizaPajaro = false;
+		rotaPajaro_2 = true;
+		paso = 7;
+	}
+	if (rotPajaro2 <= 0 && paso == 7) {
+		
 		rotaPajaro_2 = false;
 		animPajaro1_2 = true;
 	}
