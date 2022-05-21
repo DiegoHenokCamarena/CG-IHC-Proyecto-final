@@ -248,6 +248,8 @@ int main()
 	Shader SkyBoxshader("Shaders/SkyBox.vs", "Shaders/SkyBox.frag");
 	Shader animShader("Shaders/anim.vs", "Shaders/anim.frag");
 	Shader Anim2("Shaders/anim2.vs", "Shaders/anim2.frag");
+	Shader animShader2("Shaders/shaders_luis/anim.vs", "Shaders/shaders_luis/anim.fs");
+
 	//--------------------------------CARGA DE MODELOS--------------------------------//
 	//--------------------------------FACHADA--------------------------------//
 	Model Fachada((char*)"Models/Modelos/Diego/Fachada_Picapiedras/fachadaPicapiedras.obj");
@@ -282,6 +284,12 @@ int main()
 	 Model PajaroTelefonoPicapiedras((char*)"Models/Modelos/Diego/Telefono_Picapiedras/pajaro_tel_picapiedras.obj");
 	 Model AlaDerPajarotelefonoPicapiedras((char*)"Models/Modelos/Diego/Telefono_Picapiedras/alaDer_pajaro_tel.obj");
 	 Model AlaIzqPajarotelefonoPicapiedras((char*)"Models/Modelos/Diego/Telefono_Picapiedras/alaIzq_pajaro_tel.obj");
+	 //--------------------------------8. personaje plantando animacion--------------------------------//
+	ModelAnim animacion1("Models/Modelos/Luis/animacion1/animacion.dae");
+	animacion1.initShaders(animShader2.ID);
+
+
+
 
 	//Objeto traslucido
 	Model objTras("Models/Cubo/Cube01.obj");
@@ -588,6 +596,13 @@ int main()
 		glm::mat4 tmp = glm::mat4(1.0f); //Temp
 
 		//Carga de modelo
+		// --------------------------personaje plantando--------------------------
+		// model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.3f, 1.75f, 200.0f));
+		// model = glm::scale(model, glm::vec3(0.5f));
+		// model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		// animShader.setMat4("model", model);
+		// animacion1.Draw(animShader);
+		// 
 		//--------------------------FACHADA--------------------------//
 		view = camera.GetViewMatrix();
 		glm::mat4 model(1);
