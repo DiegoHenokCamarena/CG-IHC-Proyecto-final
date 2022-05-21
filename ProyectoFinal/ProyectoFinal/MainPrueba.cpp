@@ -57,7 +57,7 @@ float range = 0.0f;
 float rot = 0.0f;
 float rotAlas = 0.0f;
 float rotPendulo = 0.0f;
-//Mov pajaro 1
+//Mov dino 1
 float movPajaro = 0.0f;
 int direccionGiro = 0;
 int escala = 1;
@@ -67,7 +67,7 @@ bool animPajaro1 = true;
 bool animPajaro2 = false;
 bool animAlas1 = true;
 bool animAlas2 = false;
-//Mov pajaro 2
+//Mov dino 2
 int paso = 0;
 float movPajaroX = 0.0f;//mov en X
 float movPajaroY = 75.0f;// mov en Y
@@ -87,7 +87,7 @@ bool aterrizaPajaro = false;
 bool animAlas1_2 = true;
 bool animAlas2_2 = false;
 //------------------------//
-//Animacion pajaro 3
+//Animacion dino 3
 float giro = 0.0f;
 float giro1 = 0.0f;
 float giroRueda = 0.0f;
@@ -96,6 +96,7 @@ bool animPatas1 = true;
 bool animPatas2 = false;
 bool acelera = true;
 bool desacelera = false;
+bool mueveBrazos = false;
 //------------------------//
 bool animPendulo1 = true;
 bool animPendulo2 = false;
@@ -106,6 +107,20 @@ bool animFuego2 = false;
 float rotFuego = 0.0f;
 float escFuego = 0.0f;
 //------------------------//
+//Dino 4
+bool cabezaArriba = true;
+bool cabezaAbajo = false;
+bool cabezaDerecha = false;
+bool cabezaizquierda = false;
+float rotCabeza = 0.0f; // arr-ab
+float rotCabeza2 = 0.0f;// i-d
+bool mueveColaD = true;
+bool mueveColaI = false;
+float rotCola = 0.0f; // i-d
+bool bebeAgua = false;
+float delay4 = 0.0f;
+int pasos4 = 0;
+
 bool abre = false;
 bool cierra = false;
 float rotPuerta = 0.0f;
@@ -277,11 +292,19 @@ int main()
 	 Model PajaroProyectorPicapiedras((char*)"Models/Modelos/Diego/Proyector_Picapiedras/CuerpoPajaroProyectorPicapiedras.obj");
 	 Model PataDPajaroProyectorPicapiedras((char*)"Models/Modelos/Diego/Proyector_Picapiedras/PiernaDerPajaroProyectorPicapiedras.obj");
 	 Model PataIPajaroProyectorPicapiedras((char*)"Models/Modelos/Diego/Proyector_Picapiedras/PiernaIzqPajaroProyectorPicapiedras.obj");
+	 Model BrazoDerecho((char*)"Models/Modelos/Diego/Proyector_Picapiedras/brazoDer.obj");
+	 Model BrazoIzquierdo((char*)"Models/Modelos/Diego/Proyector_Picapiedras/brazoIzq.obj");
+	 
 	 //--------------------------------7. Telefono--------------------------------//
 	 Model telefonoPicapiedras((char*)"Models/Modelos/Telefono_Picapiedras/telefono_picapiedras.obj");
 	 Model PajaroTelefonoPicapiedras((char*)"Models/Modelos/Diego/Telefono_Picapiedras/pajaro_tel_picapiedras.obj");
 	 Model AlaDerPajarotelefonoPicapiedras((char*)"Models/Modelos/Diego/Telefono_Picapiedras/alaDer_pajaro_tel.obj");
 	 Model AlaIzqPajarotelefonoPicapiedras((char*)"Models/Modelos/Diego/Telefono_Picapiedras/alaIzq_pajaro_tel.obj");
+	 //----------Dino 4------------//
+	 Model cuerpoDino4((char*)"Models/Modelos/Diego/dino4/cuerpoDino.obj");
+	 Model cabezaDino4((char*)"Models/Modelos/Diego/dino4/cabezaDino.obj");
+	 Model colaDino4((char*)"Models/Modelos/Diego/dino4/colaDino.obj");
+	 
 
 	//Objeto traslucido
 	Model objTras("Models/Cubo/Cube01.obj");
@@ -670,8 +693,7 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
 		aguaCazuelaPicapiedras.Draw(lightingShader);
-		//--------------------------Proyector--------------------------//
-		
+		//--------------------------Proyector--------------------------//		
 		view = camera.GetViewMatrix();
 		model = glm::mat4(4);
 		model = glm::translate(model, glm::vec3(400.0f, -20.0f, -100.0f));
@@ -696,6 +718,20 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
 		PataIPajaroProyectorPicapiedras.Draw(lightingShader);
+		view = camera.GetViewMatrix();
+		model = glm::mat4(4);
+		model = glm::translate(model, glm::vec3(398.0f, 65.0f, -152.0f)); 
+		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -62.0f));
+		model = glm::rotate(model, glm::radians(giro1), glm::vec3(1.0f, 0.0f, 0.0));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
+		BrazoDerecho.Draw(lightingShader);
+		view = camera.GetViewMatrix();
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(giro1), glm::vec3(1.0f, 0.0f, 0.0));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
+		BrazoIzquierdo.Draw(lightingShader);
 		//--------------------------Telefono--------------------------//
 		view = camera.GetViewMatrix();
 		model = glm::mat4(4);
@@ -721,7 +757,28 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
 		AlaIzqPajarotelefonoPicapiedras.Draw(lightingShader);
-		
+		// Dino //
+		view = camera.GetViewMatrix();
+		model = glm::mat4(4);
+		tmp = model = glm::translate(model, glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(posX, posY, posZ));
+		model = glm::translate(model, glm::vec3(500.0f, 32.0f, -430.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		cuerpoDino4.Draw(lightingShader);
+		view = camera.GetViewMatrix();
+		model = glm::mat4(4);
+		model = glm::translate(model, glm::vec3(410.0f, 32.0f, -475.0f));
+		model = glm::rotate(model, glm::radians(rotCabeza), glm::vec3(1.0f, 0.0f, 0.0));
+		model = glm::rotate(model, glm::radians(rotCabeza2), glm::vec3(0.0f, 1.0f, 0.0));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		cabezaDino4.Draw(lightingShader);
+		view = camera.GetViewMatrix();
+		model = glm::mat4(4);
+		model = glm::translate(model, glm::vec3(410.0f, 32.0f, -430.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -180.0f));
+		model = glm::rotate(model, glm::radians(rotCola), glm::vec3(0.0f, 1.0f, 0.0));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		colaDino4.Draw(lightingShader);
 		//-----------------ANIMACIONES-------------// 		
 
 		Anim2.Use();
@@ -1064,7 +1121,7 @@ void DoMovement()
 		movPajaroY += 1;
 	}
 	if (aterrizaPajaro) {
-		movPajaroZ -= 4;
+		movPajaroZ -= 4.3;
 		movPajaroY -= 1.5;
 	}
 	if (movPajaroY <= -130 && paso ==1) {
@@ -1172,6 +1229,77 @@ void DoMovement()
 		abre = true;
 	}
 
+	// Anim dino 4 //
+	if (cabezaArriba) {	
+		rotCabeza += 0.2;
+	}
+	if (cabezaAbajo) {
+		rotCabeza -= 0.2;
+	}
+	if (cabezaizquierda) {
+		rotCabeza2 -= 0.3;
+	}
+	if (cabezaDerecha) {
+		rotCabeza2 += 0.3;
+	}
+	if (bebeAgua) {
+		delay4 += 0.01;
+	}
+	if (rotCabeza >= 30 ) {
+		cabezaArriba = false;
+		cabezaAbajo = true;
+		pasos4 = 1;
+	}
+	if (rotCabeza <= -50 && pasos4 == 1) {
+		bebeAgua = true;
+		cabezaAbajo = false;
+		pasos4 = 2;
+	}
+	if (delay4 >= 20 && pasos4 == 2) {
+		bebeAgua = false;
+		cabezaArriba = true;
+		delay4 = 0;
+		pasos4 = 3;
+	}
+	if (rotCabeza >= 0 && pasos4 == 3) {
+		cabezaArriba = false;
+		bebeAgua = true;
+		pasos4 = 4;
+	}
+	if (delay4 >= 20 && pasos4 == 4) {
+		bebeAgua = false;
+		cabezaDerecha = true;
+		delay4 = 0;
+		pasos4 = 5;
+	}
+	if (rotCabeza2 >= 30 && pasos4 == 5) {
+		cabezaDerecha = false;
+		cabezaizquierda = true;
+		pasos4 = 6;
+	}
+	if (rotCabeza2 <= -30 && pasos4 == 6) {
+		cabezaizquierda = false;
+		bebeAgua = true;
+		pasos4 = 7;
+	}
+	if (delay4 >= 20 && pasos4 == 7) {
+		cabezaArriba = true;
+		pasos4 = 0;
+	}
+	if (mueveColaD) {
+		rotCola += 0.3;
+	}
+	if (mueveColaI) {
+		rotCola -= 0.3;
+	}
+	if (rotCola >= 30) {
+		mueveColaD = false;
+		mueveColaI = true;
+	}
+	if (rotCola <= -30) {
+		mueveColaD = true;
+		mueveColaI = false;
+	}
 	if (keys[GLFW_KEY_C])
 	{
 		abre = false;
