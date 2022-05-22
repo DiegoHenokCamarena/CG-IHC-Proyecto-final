@@ -137,7 +137,7 @@ GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
 
 // Keyframes
-float posX =PosIni.x, posY = PosIni.y, posZ = PosIni.z, rotRodIzq = 0;
+float posX =PosIni.x, posY = PosIni.y, posZ = PosIni.z, rotRuedas = 0;
 
 #define MAX_FRAMES 9
 int i_max_steps = 190;
@@ -151,7 +151,7 @@ typedef struct _frame
 	float incX;		//Variable para IncrementoX
 	float incY;		//Variable para IncrementoY
 	float incZ;		//Variable para IncrementoZ
-	float rotRodIzq;
+	float rotRuedas;
 	float rotInc;
 
 }FRAME;
@@ -183,7 +183,7 @@ void saveFrame(void)
 	KeyFrame[FrameIndex].posY = posY;
 	KeyFrame[FrameIndex].posZ = posZ;
 	
-	KeyFrame[FrameIndex].rotRodIzq = rotRodIzq;
+	KeyFrame[FrameIndex].rotRuedas = rotRuedas;
 	
 
 	FrameIndex++;
@@ -195,7 +195,7 @@ void resetElements(void)
 	posY = KeyFrame[0].posY;
 	posZ = KeyFrame[0].posZ;
 
-	rotRodIzq = KeyFrame[0].rotRodIzq;
+	rotRuedas = KeyFrame[0].rotRuedas;
 
 }
 
@@ -206,7 +206,7 @@ void interpolation(void)
 	KeyFrame[playIndex].incY = (KeyFrame[playIndex + 1].posY - KeyFrame[playIndex].posY) / i_max_steps;
 	KeyFrame[playIndex].incZ = (KeyFrame[playIndex + 1].posZ - KeyFrame[playIndex].posZ) / i_max_steps;
 	
-	KeyFrame[playIndex].rotInc = (KeyFrame[playIndex + 1].rotRodIzq - KeyFrame[playIndex].rotRodIzq) / i_max_steps;
+	KeyFrame[playIndex].rotInc = (KeyFrame[playIndex + 1].rotRuedas - KeyFrame[playIndex].rotRuedas) / i_max_steps;
 
 }
 
@@ -219,7 +219,7 @@ int main()
 	glfwInit();
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
-	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "314233150_ProyectoFinal", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Proyecto Final: Computacion Grafica e Interaccion Humano-Computadora", nullptr, nullptr);
 
 	if (nullptr == window)
 	{
@@ -305,6 +305,11 @@ int main()
 	 Model cabezaDino4((char*)"Models/Modelos/Diego/dino4/cabezaDino.obj");
 	 Model colaDino4((char*)"Models/Modelos/Diego/dino4/colaDino.obj");
 	 
+	 //--------------------------------Carro Picapiedra--------------------------------//
+	 Model Carro((char*)"Models/Modelos/Karla/carro/carro.obj");
+	 /*Model Carro((char*)"Models/Modelos/Karla/carro/carroSR.obj");
+	 Model Ruedas((char*)"Models/Modelos/Karla/carro/Ruedas.obj");*/
+
 
 	//Objeto traslucido
 	Model objTras("Models/Cubo/Cube01.obj");
@@ -319,7 +324,7 @@ int main()
 		KeyFrame[i].incX = 0;
 		KeyFrame[i].incY = 0;
 		KeyFrame[i].incZ = 0;
-		KeyFrame[i].rotRodIzq = 0;
+		KeyFrame[i].rotRuedas = 0;
 		KeyFrame[i].rotInc = 0;
 	}
 
@@ -779,6 +784,20 @@ int main()
 		model = glm::rotate(model, glm::radians(rotCola), glm::vec3(0.0f, 1.0f, 0.0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		colaDino4.Draw(lightingShader);
+		// Carro Picapiedra //
+		view = camera.GetViewMatrix();
+		model = glm::mat4(4);
+		model = glm::translate(model, glm::vec3(-95.0f, 22.0f, -45.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Carro.Draw(lightingShader);
+		
+		/*view = camera.GetViewMatrix();
+		model = glm::mat4(4);
+		model = glm::translate(model, glm::vec3(-95.0f, 22.0f, -45.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Ruedas.Draw(lightingShader);*/
+
+
 		//-----------------ANIMACIONES-------------// 		
 
 		Anim2.Use();
@@ -897,7 +916,7 @@ void animacion()
 				posY += KeyFrame[playIndex].incY;
 				posZ += KeyFrame[playIndex].incZ;
 
-				rotRodIzq += KeyFrame[playIndex].rotInc;
+				rotRuedas += KeyFrame[playIndex].rotInc;
 
 				i_curr_steps++;
 			}
@@ -913,6 +932,7 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 		if (play == false && (FrameIndex > 1))
 		{
 
+			std::cout << "Play animation" << std::endl;
 			resetElements();
 			//First Interpolation				
 			interpolation();
@@ -924,8 +944,17 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 		else
 		{
 			play = false;
+			std::cout << "Not enough Key Frames" << std::endl;
 		}
 
+	}
+
+	if (keys[GLFW_KEY_K])
+	{
+		if (FrameIndex < MAX_FRAMES)
+		{
+			saveFrame();
+		}
 	}
 
 	if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
@@ -987,17 +1016,16 @@ void DoMovement()
 
 	if (keys[GLFW_KEY_2])
 	{
-		if (rotRodIzq<80.0f)
-			rotRodIzq += 1.0f;
+			posX += 1.0f;
 			
 	}	
 
 	if (keys[GLFW_KEY_3])
-	{
-		if (rotRodIzq>-45)
-			rotRodIzq -= 1.0f;
+	{			
+			posX -= 1.0f;
 		
 	}
+
 
 	//Mov Pendulo pajaro Reloj
 	if (animPendulo1) //animación hacia la derecha
