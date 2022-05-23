@@ -50,7 +50,7 @@ C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFina
 soil2-debug.lib(SOIL2.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/OPT:ICF'
 LINK : warning LNK4098: la biblioteca predeterminada'MSVCRTD' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
-  2 of 691 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  1 of 691 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
