@@ -137,7 +137,7 @@ GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
 
 // Keyframes
-float posX =PosIni.x, posY = PosIni.y, posZ = PosIni.z, rotRodIzq = 0;
+float posX =PosIni.x, posY = PosIni.y, posZ = PosIni.z, rotRuedas = 0;
 
 #define MAX_FRAMES 9
 int i_max_steps = 190;
@@ -151,7 +151,7 @@ typedef struct _frame
 	float incX;		//Variable para IncrementoX
 	float incY;		//Variable para IncrementoY
 	float incZ;		//Variable para IncrementoZ
-	float rotRodIzq;
+	float rotRuedas;
 	float rotInc;
 
 }FRAME;
@@ -183,7 +183,7 @@ void saveFrame(void)
 	KeyFrame[FrameIndex].posY = posY;
 	KeyFrame[FrameIndex].posZ = posZ;
 	
-	KeyFrame[FrameIndex].rotRodIzq = rotRodIzq;
+	KeyFrame[FrameIndex].rotRuedas = rotRuedas;
 	
 
 	FrameIndex++;
@@ -195,7 +195,7 @@ void resetElements(void)
 	posY = KeyFrame[0].posY;
 	posZ = KeyFrame[0].posZ;
 
-	rotRodIzq = KeyFrame[0].rotRodIzq;
+	rotRuedas = KeyFrame[0].rotRuedas;
 
 }
 
@@ -206,7 +206,7 @@ void interpolation(void)
 	KeyFrame[playIndex].incY = (KeyFrame[playIndex + 1].posY - KeyFrame[playIndex].posY) / i_max_steps;
 	KeyFrame[playIndex].incZ = (KeyFrame[playIndex + 1].posZ - KeyFrame[playIndex].posZ) / i_max_steps;
 	
-	KeyFrame[playIndex].rotInc = (KeyFrame[playIndex + 1].rotRodIzq - KeyFrame[playIndex].rotRodIzq) / i_max_steps;
+	KeyFrame[playIndex].rotInc = (KeyFrame[playIndex + 1].rotRuedas - KeyFrame[playIndex].rotRuedas) / i_max_steps;
 
 }
 
@@ -219,7 +219,7 @@ int main()
 	glfwInit();
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
-	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "314233150_ProyectoFinal", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Proyecto Final: Computacion Grafica e Interaccion Humano-Computadora", nullptr, nullptr);
 
 	if (nullptr == window)
 	{
@@ -305,6 +305,11 @@ int main()
 	 Model cabezaDino4((char*)"Models/Modelos/Diego/dino4/cabezaDino.obj");
 	 Model colaDino4((char*)"Models/Modelos/Diego/dino4/colaDino.obj");
 	 
+	 //--------------------------------Carro Picapiedra--------------------------------//
+	 Model Carro((char*)"Models/Modelos/Karla/carro/carro.obj");
+	 /*Model Carro((char*)"Models/Modelos/Karla/carro/carroSR.obj");
+	 Model Ruedas((char*)"Models/Modelos/Karla/carro/Ruedas.obj");*/
+
 
 	//Objeto traslucido
 	Model objTras("Models/Cubo/Cube01.obj");
@@ -319,7 +324,7 @@ int main()
 		KeyFrame[i].incX = 0;
 		KeyFrame[i].incY = 0;
 		KeyFrame[i].incZ = 0;
-		KeyFrame[i].rotRodIzq = 0;
+		KeyFrame[i].rotRuedas = 0;
 		KeyFrame[i].rotInc = 0;
 	}
 
@@ -663,7 +668,9 @@ int main()
 		model = glm::translate(model, glm::vec3(50.0f, 460.0f, -300.0f));
 		model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
 		relojCaja.Draw(lightingShader);	
+		
 		view = camera.GetViewMatrix();
 		model = glm::rotate(model, glm::radians(rotPendulo), glm::vec3(1.0f, 0.0f, 0.0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -696,7 +703,9 @@ int main()
 		//--------------------------Proyector--------------------------//		
 		view = camera.GetViewMatrix();
 		model = glm::mat4(4);
-		model = glm::translate(model, glm::vec3(400.0f, -20.0f, -100.0f));
+		tmp = model = glm::translate(model, glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(posX, posY, posZ));
+		model = glm::translate(model, glm::vec3(470.0f, -20.0f, -100.0f));
 		model = glm::rotate(model, glm::radians(giroRueda), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::scale(model, glm::vec3(0.7f, 1.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -704,7 +713,9 @@ int main()
 		ruedaProyectorPicapiedras.Draw(lightingShader);
 		view = camera.GetViewMatrix();
 		model = glm::mat4(4);
-		model = glm::translate(model, glm::vec3(400.0f, 65.0f, -90.0f));
+		tmp = model = glm::translate(model, glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(posX, posY, posZ));
+		model = glm::translate(model, glm::vec3(470.0f, 65.0f, -90.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
 		PajaroProyectorPicapiedras.Draw(lightingShader);
@@ -720,7 +731,9 @@ int main()
 		PataIPajaroProyectorPicapiedras.Draw(lightingShader);
 		view = camera.GetViewMatrix();
 		model = glm::mat4(4);
-		model = glm::translate(model, glm::vec3(398.0f, 65.0f, -152.0f)); 
+		tmp = model = glm::translate(model, glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(posX, posY, posZ));
+		model = glm::translate(model, glm::vec3(470.0f, 65.0f, -152.0f)); 
 		//model = glm::translate(model, glm::vec3(0.0f, 0.0f, -62.0f));
 		model = glm::rotate(model, glm::radians(giro1), glm::vec3(1.0f, 0.0f, 0.0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -764,21 +777,42 @@ int main()
 		model = glm::translate(model, glm::vec3(posX, posY, posZ));
 		model = glm::translate(model, glm::vec3(500.0f, 32.0f, -430.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
 		cuerpoDino4.Draw(lightingShader);
 		view = camera.GetViewMatrix();
 		model = glm::mat4(4);
-		model = glm::translate(model, glm::vec3(410.0f, 32.0f, -475.0f));
+		tmp = model = glm::translate(model, glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(posX, posY, posZ));
+		model = glm::translate(model, glm::vec3(500.0f, 32.0f, -435.0f));
 		model = glm::rotate(model, glm::radians(rotCabeza), glm::vec3(1.0f, 0.0f, 0.0));
 		model = glm::rotate(model, glm::radians(rotCabeza2), glm::vec3(0.0f, 1.0f, 0.0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
 		cabezaDino4.Draw(lightingShader);
 		view = camera.GetViewMatrix();
 		model = glm::mat4(4);
-		model = glm::translate(model, glm::vec3(410.0f, 32.0f, -430.0f));
+		tmp = model = glm::translate(model, glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(posX, posY, posZ));
+		model = glm::translate(model, glm::vec3(500.0f, 32.0f, -380.0f));
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, -180.0f));
 		model = glm::rotate(model, glm::radians(rotCola), glm::vec3(0.0f, 1.0f, 0.0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "transparencia"), 0.0);
 		colaDino4.Draw(lightingShader);
+		// Carro Picapiedra //
+		view = camera.GetViewMatrix();
+		model = glm::mat4(4);
+		model = glm::translate(model, glm::vec3(-95.0f, 22.0f, -45.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Carro.Draw(lightingShader);
+		
+		/*view = camera.GetViewMatrix();
+		model = glm::mat4(4);
+		model = glm::translate(model, glm::vec3(-95.0f, 22.0f, -45.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		Ruedas.Draw(lightingShader);*/
+
+
 		//-----------------ANIMACIONES-------------// 		
 
 		Anim2.Use();
@@ -791,7 +825,9 @@ int main()
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
-		tmp = model = glm::translate(model, glm::vec3(10.0f, 470.0f, -350.0f));
+		//tmp = model = glm::translate(model, glm::vec3(0, 1, 0));
+		model = glm::translate(model, glm::vec3(posX, posY, posZ));
+		tmp = model = glm::translate(model, glm::vec3(90.0f, 470.0f, -300.0f));
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, (escala) * 1.0f));
 		model = glm::translate(model, glm::vec3(movPajaro, 0, posPaloReloj));
 		model = glm::rotate(model, glm::radians(rotPajaro), glm::vec3(0.0f, -1.0f, 0.0f));
@@ -897,7 +933,7 @@ void animacion()
 				posY += KeyFrame[playIndex].incY;
 				posZ += KeyFrame[playIndex].incZ;
 
-				rotRodIzq += KeyFrame[playIndex].rotInc;
+				rotRuedas += KeyFrame[playIndex].rotInc;
 
 				i_curr_steps++;
 			}
@@ -913,6 +949,7 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 		if (play == false && (FrameIndex > 1))
 		{
 
+			std::cout << "Play animation" << std::endl;
 			resetElements();
 			//First Interpolation				
 			interpolation();
@@ -924,8 +961,17 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 		else
 		{
 			play = false;
+			std::cout << "Not enough Key Frames" << std::endl;
 		}
 
+	}
+
+	if (keys[GLFW_KEY_K])
+	{
+		if (FrameIndex < MAX_FRAMES)
+		{
+			saveFrame();
+		}
 	}
 
 	if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
@@ -987,16 +1033,25 @@ void DoMovement()
 
 	if (keys[GLFW_KEY_2])
 	{
-		if (rotRodIzq<80.0f)
-			rotRodIzq += 1.0f;
+			posX += 1.0f;
 			
 	}	
 
 	if (keys[GLFW_KEY_3])
-	{
-		if (rotRodIzq>-45)
-			rotRodIzq -= 1.0f;
+	{			
+			posX -= 1.0f;
 		
+	}
+
+	if (keys[GLFW_KEY_4])
+	{
+		posY += 1.0f;
+
+	}
+	if (keys[GLFW_KEY_5])
+	{
+		posY -= 1.0f;
+
 	}
 
 	//Mov Pendulo pajaro Reloj
