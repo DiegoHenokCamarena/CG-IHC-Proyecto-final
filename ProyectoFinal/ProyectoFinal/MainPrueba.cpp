@@ -44,7 +44,7 @@ void DoMovement();
 void animacion();
 
 // Window dimensions
-const GLuint WIDTH = 1600, HEIGHT = 1200;
+const GLuint WIDTH = 1800, HEIGHT = 900;
 int SCREEN_WIDTH, SCREEN_HEIGHT;
 
 // Camera
@@ -138,6 +138,7 @@ GLfloat lastFrame = 0.0f;  	// Time of last frame
 
 // Keyframes
 float posX =PosIni.x, posY = PosIni.y, posZ = PosIni.z, rotRuedas = 0;
+float movX = 0, movY = 0, movZ = 0, rotY = 0;
 
 #define MAX_FRAMES 9
 int i_max_steps = 190;
@@ -306,7 +307,7 @@ int main()
 	 Model colaDino4((char*)"Models/Modelos/Diego/dino4/colaDino.obj");
 	 
 	 //--------------------------------Carro Picapiedra--------------------------------//
-	 Model Carro((char*)"Models/Modelos/Karla/carro/carro.obj");
+	 Model Carro((char*)"Models/Modelos/Karla/carro/carro2.obj");
 	 /*Model Carro((char*)"Models/Modelos/Karla/carro/carroSR.obj");
 	 Model Ruedas((char*)"Models/Modelos/Karla/carro/Ruedas.obj");*/
 
@@ -802,7 +803,9 @@ int main()
 		// Carro Picapiedra //
 		view = camera.GetViewMatrix();
 		model = glm::mat4(4);
-		model = glm::translate(model, glm::vec3(-95.0f, 22.0f, -45.0f));
+		model = glm::translate(model, glm::vec3(-400.0f, -18.0f, -150.0f));
+		model = glm::translate(model, glm::vec3(movX, movY, movZ));
+		model = glm::rotate(model, glm::radians(rotY), glm::vec3(0.0f, 1.0f, 0.0));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		Carro.Draw(lightingShader);
 		
@@ -1053,6 +1056,21 @@ void DoMovement()
 		posY -= 1.0f;
 
 	}
+	if (keys[GLFW_KEY_6])
+	{
+		posY += 1.0f;
+
+	}
+	if (keys[GLFW_KEY_7])
+	{
+		posY -= 1.0f;
+
+	}
+	if (keys[GLFW_KEY_8])
+	{
+		rotY -= 1.0f;
+
+	}
 
 	//Mov Pendulo pajaro Reloj
 	if (animPendulo1) //animación hacia la derecha
@@ -1176,7 +1194,7 @@ void DoMovement()
 		movPajaroY += 1;
 	}
 	if (aterrizaPajaro) {
-		movPajaroZ -= 4.3;
+		movPajaroZ -= 4.22;
 		movPajaroY -= 1.5;
 	}
 	if (movPajaroY <= -130 && paso ==1) {
@@ -1313,6 +1331,7 @@ void DoMovement()
 	if (delay4 >= 20 && pasos4 == 2) {
 		bebeAgua = false;
 		cabezaArriba = true;
+		//rotCola = rotCola;
 		delay4 = 0;
 		pasos4 = 3;
 	}
@@ -1338,6 +1357,10 @@ void DoMovement()
 		pasos4 = 7;
 	}
 	if (delay4 >= 20 && pasos4 == 7) {
+		rotCabeza = 0;
+		rotCabeza2 = 0;
+		cabezaDerecha = 0;
+		cabezaizquierda = 0;
 		cabezaArriba = true;
 		pasos4 = 0;
 	}
