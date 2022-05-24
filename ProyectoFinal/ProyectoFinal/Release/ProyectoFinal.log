@@ -1,58 +1,8 @@
-﻿  MainPrueba.cpp
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\modelAnim.h(519,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(515,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(823,23): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1012,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1013,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1017,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1018,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1020,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1021,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1078,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1082,20): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1096,21): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1102,21): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1108,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1125,17): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1128,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1132,20): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1146,17): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1150,17): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1168,25): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1169,24): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1173,25): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1174,25): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1178,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1179,21): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1183,21): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1184,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1197,21): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1243,27): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1246,26): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1247,27): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1252,26): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1253,27): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1264,15): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1267,30): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1268,15): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1271,26): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1272,27): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1277,26): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1278,27): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1307,19): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1310,19): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1313,20): warning C4305: '-=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1316,20): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1319,17): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1368,17): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\ProyectoFinal\MainPrueba.cpp(1371,17): warning C4305: '-=': truncamiento de 'double' a 'float'
-soil2-debug.lib(SOIL2.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/OPT:ICF'
+﻿soil2-debug.lib(SOIL2.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/OPT:ICF'
 LINK : warning LNK4098: la biblioteca predeterminada'MSVCRTD' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
-  1 of 691 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 691 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Generación de código finalizada
 soil2-debug.lib(etc1_utils.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(etc1_utils.obj)' o en 'C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\Release\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
 soil2-debug.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(image_DXT.obj)' o en 'C:\Users\diego\OneDrive\Escritorio\ProyectoCG\CG-IHC-Proyecto-final\ProyectoFinal\Release\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración

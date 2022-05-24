@@ -1058,12 +1058,12 @@ void DoMovement()
 	}
 	if (keys[GLFW_KEY_6])
 	{
-		posY += 1.0f;
+		posZ += 1.0f;
 
 	}
 	if (keys[GLFW_KEY_7])
 	{
-		posY -= 1.0f;
+		posZ -= 1.0f;
 
 	}
 	if (keys[GLFW_KEY_8])
